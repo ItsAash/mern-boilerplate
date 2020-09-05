@@ -14,9 +14,9 @@ exports.register = asyncHandlers(async (req, res, next) => {
   }
 
   let user = await User.findOne({ email });
-  let user = await User.findOne({ phoneNumber });
+  let userWithNumber = await User.findOne({ phoneNumber });
 
-  if (phoneNumber) {
+  if (userWithNumber) {
     return res.status(400).json({
       success: false,
       message: "Phone Number already exists",
